@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LINE</title>
+  <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+  <th:block th:include="fragments/custom.html :: head-volume"></th:block>
+</head>
+
+<body>
+  <!--/*@thymesVar id="Audio" type="be.freeaime.systemaudiovolumeapp.views.Audio"*/-->
+  <div class="prev-div">
+    <a th:href="@{/mixer/{mn}(mn=${mixerName})}" class="previous round">&#10096;</a>
+  </div>
+  <th:block th:if="${mixerName!=null}">
+    <!--/*@thymesVar id="line" type="java.lang.String"*/-->
+    <th:block th:if="${line!=null}">
+      <div class="main">
+        <div class="vol">
+          <div th:text="${line}">Master target port</div>
+          <div id="volumeDiv">65%</div>
+        </div>
+
+        <div class="controls">
+          <button class="button-left" id="decreaseVolume">&#10134;</button>
+          <button class="button-right" id="increaseVolume">&#10133;</button>
+        </div>
+      </div>
+      <div class="hide" id="mixerName" th:text="${mixerName}"></div>
+      <div class="hide" id="lineName" th:text="${line}"></div>
+    </th:block>
+  </th:block>
+  <th:block th:unless="${line!=null}">
+
+    <div class="prev-div">
+      <a th:href="@{/mixer/{mn}(mn=${mixerName})}" class="previous round">&#8249;</a>
+    </div>
+    <div>
+      <h3>No Lines Available</h3>
+    </div>
+  </th:block>
+  <th:block th:include="fragments/custom.html :: script-cdn"></th:block>
+</body>
+
+</html>

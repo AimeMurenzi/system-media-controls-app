@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Volume</title>
+  <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+</head>
+
+<body>
+
+  <div class="prev-div">
+    <a href="/" class="previous round">&#10096;</a>
+  </div>
+  <!--/*@thymesVar id="Audio" type="be.freeaime.systemaudiovolumeapp.views.Audio"*/-->
+  <div class="menu-container">
+    <div class="menu-item-details-container">
+      <div class="title">MIXER PORTS</div>
+      <th:block th:if="${mixerName!=null}">
+        <!--/*@thymesVar id="lines" type="java.util.Set<String>"*/-->
+        <th:block th:if="${lines!=null}">
+          <th:block th:each="line :${lines}">
+            <a th:href="@{/mixer/{mn}/line/{ln}(ln=${line},mn=${mixerName})}">
+              <div class="menu-item" th:text="${line}"></div>
+            </a>
+          </th:block>
+        </th:block>
+      </th:block>
+      <th:block th:unless="${lines!=null}">
+        No Lines Available
+      </th:block>
+    </div>
+  </div>
+
+</body>
+
+</html>
+</body>
+
+</html>
