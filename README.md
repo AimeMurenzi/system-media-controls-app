@@ -12,7 +12,7 @@ or decrease audio volume of a selected audio output line via a web app.
 - **HTML5**
 - **CSS3**
 - **Javascript**
-- **OpenFX**
+- **JavaFX**
 
 ![System Audio Volume App screenshots](systemaudiovolumeapp.png "System Audio Volume App screenshots") 
 
