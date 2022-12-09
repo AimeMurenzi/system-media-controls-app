@@ -1,3 +1,9 @@
+<!-- 
+  @Author: Aimé
+  @Date:   2022-11-03 14:44:02
+  @Last Modified by:   Aimé
+  @Last Modified time: 2022-12-07 18:30:08
+-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
@@ -24,8 +30,8 @@
 
         <div class="controls">
           <button class="button-left" id="decreaseVolume">&#10134;</button>
-          <button class="button-right" id="increaseVolume">&#10133;</button>
-        </div>
+          <button class="button-right" id="increaseVolume">&#10133;</button> 
+        </div>  
       </div>
       <div class="hide" id="mixerName" th:text="${mixerName}"></div>
       <div class="hide" id="lineName" th:text="${line}"></div>
@@ -40,7 +46,7 @@
       <h3>No Lines Available</h3>
     </div>
   </th:block>
-  <th:block th:include="fragments/custom.html :: script-cdn"></th:block>
+  <th:block th:include="fragments/custom.html :: script-advanced"></th:block>
 </body>
 
 </html>

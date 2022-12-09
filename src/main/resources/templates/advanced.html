@@ -1,0 +1,39 @@
+<!-- 
+  @Author: Aimé
+  @Date:   2022-11-03 14:44:02
+  @Last Modified by:   Aimé
+  @Last Modified time: 2022-12-08 01:27:38
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+</head>
+
+<body>
+    <div class="prev-div">
+        <a href="/" class="previous round">&#10096;</a>
+      </div>
+    <!--/*@thymesVar id="Audio" type="be.freeaime.systemaudiovolumeapp.views.Audio"*/-->
+    <div class="menu-container">
+        <div class="menu-item-details-container">
+            <div class="title">ADVANCED</div>
+            <div class="title">MIXERS</div>
+            <th:block th:each="mixer :${Audio.getMixers()}">
+                <!--/*@thymesVar id="mixerName" type="java.lang.String"*/-->
+                <div th:if="${ mixerName!=null && #strings.containsIgnoreCase(mixer.getName(), mixerName)}"
+                    class="menu-item menu-item-selected" th:text="${mixer.getName()}"></div>
+                <a th:unless="${mixerName!=null && #strings.containsIgnoreCase(mixer.getName(), mixerName)}"
+                    th:href="@{/mixer/{mn}(mn=${mixer.getName()})}">
+                    <div class="menu-item" th:text="${mixer.getName()}"></div>
+                </a>
+            </th:block>
+        </div>
+    </div>
+
+</body>
+
+</html>

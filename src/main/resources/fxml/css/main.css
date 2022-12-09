@@ -1,0 +1,36 @@
+/**
+ * @Author: Aimé
+ * @Date:   2022-12-07 03:19:50
+ * @Last Modified by:   Aimé
+ * @Last Modified time: 2022-12-07 18:58:47
+ */
+ 
+/*========================================== GENERAL UI ===========================================*/
+.root {
+  -fx-font-weight:bold;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Courier New"; 
+  -fx-base: #151929;
+  -fx-background: #151929; 
+}
+.error{
+  -fx-base: #ff0000;
+  -fx-background: #ff0000;
+  -fx-border-color: #ff0000;
+  -fx-border-insets:-2;
+  -fx-border-width:2;
+  -fx-border-radius:3;
+} 
+.button {
+  -fx-base: #2d355f;
+} 
+.button,
+.label,
+.tab-label {
+  -fx-text-fill: rgb(128, 141, 203);
+}
+ 
+ 
+.GridPane {
+  -fx-background-color: #151929;
+} 

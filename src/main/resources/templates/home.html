@@ -1,29 +1,41 @@
+<!-- 
+  @Author: Aimé
+  @Date:   2022-11-03 14:44:02
+  @Last Modified by:   Aimé
+  @Last Modified time: 2022-12-07 18:49:00
+-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>LINE</title>
     <th:block th:include="fragments/custom.html :: head-custom"></th:block>
+    <th:block th:include="fragments/custom.html :: head-volume"></th:block>
 </head>
 
 <body>
-    <!--/*@thymesVar id="Audio" type="be.freeaime.systemaudiovolumeapp.views.Audio"*/-->
-    <div class="menu-container">
-        <div class="menu-item-details-container">
-            <div class="title">MIXERS</div>
-            <th:block th:each="mixer :${Audio.getMixers()}">
-                <!--/*@thymesVar id="mixerName" type="java.lang.String"*/-->
-                <div th:if="${ mixerName!=null && #strings.containsIgnoreCase(mixer.getName(), mixerName)}"
-                    class="menu-item menu-item-selected" th:text="${mixer.getName()}"></div>
-                <a th:unless="${mixerName!=null && #strings.containsIgnoreCase(mixer.getName(), mixerName)}"
-                    th:href="@{/mixer/{mn}(mn=${mixer.getName()})}">
-                    <div class="menu-item" th:text="${mixer.getName()}"></div>
-                </a>
-            </th:block>
+    <div class="main"> 
+        <div class="vol">
+            <div>Main Volume</div>
+            <div id="volumeDiv">65%</div>
+        </div>
+        <div class="prev-div">
+            <a href="/advanced" class="previous round">&#9881;</a>
+        </div>
+        <div class="controls">
+            <button class="button-left" id="decreaseVolumeBTN">&#128265;</button>
+            <button class="button-mid" id="muteBTN">&#128263;</button>
+            <button class="button-right" id="increaseVolumeBTN">&#128266;</button>
+        </div>
+        <div class="controls">
+            <button class="button-left" id="previousBTN">&#9198;</button>
+            <button class="button-mid" id="playPauseBTN">&#9208;</button>
+            <button class="button-right" id="nextBTN">&#9197;</button>
         </div>
     </div>
 
+    <th:block th:include="fragments/custom.html :: script-cdn"></th:block>
 </body>
 
 </html>

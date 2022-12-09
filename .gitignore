@@ -8,6 +8,7 @@ target/
 *.iws
 *.iml
 *.ipr
+*.log
 
 ### Eclipse ###
 .apt_generated
@@ -34,4 +35,8 @@ build/
 ### Mac OS ###
 .DS_Store
 test.js
-utilities/
+
+
+*.class
+utilities/ 
+/*media-key.so 

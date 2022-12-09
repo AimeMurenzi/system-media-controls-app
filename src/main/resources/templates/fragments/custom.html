@@ -1,6 +1,13 @@
+<!-- 
+  @Author: Aimé
+  @Date:   2022-11-03 14:44:02
+  @Last Modified by:   Aimé
+  @Last Modified time: 2022-12-08 01:26:51
+-->
+
 <!--    custom css-->
-<div th:fragment="head-custom">
-  <meta name="viewport" content="width=device, initial-scale=1">
+<div th:fragment="head-custom"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" th:href="@{/css/reset.css}">
   <link rel="stylesheet" th:href="@{/css/main.css}">
 </div>
@@ -9,4 +16,7 @@
 </div>
 <div th:fragment="script-cdn">
   <script th:src="@{/js/main.js}"></script>
+</div>
+<div th:fragment="script-advanced">
+  <script th:src="@{/js/advanced.js}"></script>
 </div>

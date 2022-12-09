@@ -2,9 +2,9 @@
  * @Author: Aimé
  * @Date:   2022-10-24 22:17:56
  * @Last Modified by:   Aimé
- * @Last Modified time: 2022-10-29 17:56:59
+ * @Last Modified time: 2022-12-04 22:59:05
  */
-package be.freeaime.systemaudiovolumeapp.service;
+package be.freeaime.systemmediacontrol.service;
 
 import java.util.*;
 
@@ -18,9 +18,33 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.Mixer.Info;
 
-import be.freeaime.systemaudiovolumeapp.model.CMixer;
+import be.freeaime.systemmediacontrol.model.CMixer;
 
 public class AudioService {
+  
+    public static Float getLineVolumeStatus(String toStringName, CMixer cMixer){
+        final Line line =getInstance().getLineByToStringName(toStringName, cMixer);
+        return getLineVolumeStatus(line);
+    }
+    public static Float getLineVolumeStatus(Line line){
+        if (line != null) {
+            final boolean opened = open(line);
+            try {
+                final FloatControl volumeControl =getVolumeControl(line);
+                if (volumeControl != null) {
+                    return volumeControl.getValue();
+                }
+            } finally {
+                if (opened)
+                    line.close();
+            }
+        }
+        return 0f;
+    }
+    public static Float getMasterLineStatus(){
+        return getLineVolumeStatus(CMixer.getMasterLine());
+       
+    }
     public static CMixer getMixer(String mixerName) {
         return getInstance().getMixerByToStringName(mixerName);
     }

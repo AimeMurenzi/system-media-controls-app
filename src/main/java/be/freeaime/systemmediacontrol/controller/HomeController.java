@@ -2,9 +2,9 @@
  * @Author: Aimé
  * @Date:   2022-10-25 16:02:26
  * @Last Modified by:   Aimé
- * @Last Modified time: 2022-10-29 18:09:40
+ * @Last Modified time: 2022-12-04 21:04:48
  */
-package be.freeaime.systemaudiovolumeapp.controller;
+package be.freeaime.systemmediacontrol.controller;
 
 import java.util.Set;
 
@@ -14,8 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import be.freeaime.systemaudiovolumeapp.model.CMixer;
-import be.freeaime.systemaudiovolumeapp.service.AudioService;
+import be.freeaime.systemmediacontrol.model.CMixer;
+import be.freeaime.systemmediacontrol.service.AudioService;
 
 @Controller
 public class HomeController {
@@ -23,6 +23,11 @@ public class HomeController {
     public String homePage(Model model) {
         model.addAttribute("Audio", AudioService.getInstance());
         return "home";
+    }
+    @GetMapping("/advanced")
+    public String advancedPage(Model model) {
+        model.addAttribute("Audio", AudioService.getInstance());
+        return "advanced";
     }
 
     @GetMapping("/mixer/{mixerName}")
