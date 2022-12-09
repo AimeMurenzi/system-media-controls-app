@@ -33,7 +33,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import be.freeaime.main.MainApp;
-import be.freeaime.systemmediacontrol.SystemAudioVolumeApp;
+import be.freeaime.systemmediacontrol.SystemMediaControlApp;
 import be.freeaime.util.Settings;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -90,7 +90,7 @@ public class FxEntryPoint extends Application {
             }
             
             initMediaLib();
-            SpringApplication app = new SpringApplication(SystemAudioVolumeApp.class);
+            SpringApplication app = new SpringApplication(SystemMediaControlApp.class);
             app.setDefaultProperties(Collections.singletonMap("server.port", port));
             app.setHeadless(false);
             if (context != null && context.isActive()) {

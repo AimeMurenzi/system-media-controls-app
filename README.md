@@ -1,4 +1,4 @@
-# System Audio Volume App
+# System Media Controls App
 This app controls lets you control basic media functions from a browser.
 
 In Advanced Settings
