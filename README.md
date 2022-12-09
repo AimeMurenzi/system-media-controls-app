@@ -28,7 +28,11 @@ Only tested on Linux Mint 21 Vanessa
 **for c/c++ file to compile properly I needed to install these extra packages: libx11-dev,libxtst-dev and g++**
 ```
 sudo apt install g++
+```
+```
 sudo apt install libxtst-dev
+```
+```
 sudo apt install libx11-dev
 ```
 
